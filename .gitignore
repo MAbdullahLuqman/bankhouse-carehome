@@ -1,0 +1,7 @@
+node_modules/
+.next/
+.next-production/
+*.tsbuildinfo
+.env*
+!.env.example
+reports/generated/*.png

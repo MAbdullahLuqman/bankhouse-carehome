@@ -1,0 +1,322 @@
+{
+  "layouts": [
+    {
+      "route": "/",
+      "width": 360,
+      "screenshot": "home-360.png"
+    },
+    {
+      "route": "/care-services",
+      "width": 360,
+      "screenshot": "care-services-360.png"
+    },
+    {
+      "route": "/care-services/residential",
+      "width": 360,
+      "screenshot": "care-services-residential-360.png"
+    },
+    {
+      "route": "/care-services/dementia",
+      "width": 360,
+      "screenshot": "care-services-dementia-360.png"
+    },
+    {
+      "route": "/care-services/nursing",
+      "width": 360,
+      "screenshot": "care-services-nursing-360.png"
+    },
+    {
+      "route": "/care-services/respite",
+      "width": 360,
+      "screenshot": "care-services-respite-360.png"
+    },
+    {
+      "route": "/facilities",
+      "width": 360,
+      "screenshot": "facilities-360.png"
+    },
+    {
+      "route": "/fees",
+      "width": 360,
+      "screenshot": "fees-360.png"
+    },
+    {
+      "route": "/gallery",
+      "width": 360,
+      "screenshot": "gallery-360.png"
+    },
+    {
+      "route": "/reviews",
+      "width": 360,
+      "screenshot": "reviews-360.png"
+    },
+    {
+      "route": "/contact",
+      "width": 360,
+      "screenshot": "contact-360.png"
+    },
+    {
+      "route": "/privacy",
+      "width": 360,
+      "screenshot": "privacy-360.png"
+    },
+    {
+      "route": "/cookies",
+      "width": 360,
+      "screenshot": "cookies-360.png"
+    },
+    {
+      "route": "/terms",
+      "width": 360,
+      "screenshot": "terms-360.png"
+    },
+    {
+      "route": "/accessibility",
+      "width": 360,
+      "screenshot": "accessibility-360.png"
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "screenshot": "home-390.png"
+    },
+    {
+      "route": "/care-services",
+      "width": 390,
+      "screenshot": "care-services-390.png"
+    },
+    {
+      "route": "/care-services/residential",
+      "width": 390,
+      "screenshot": "care-services-residential-390.png"
+    },
+    {
+      "route": "/care-services/dementia",
+      "width": 390,
+      "screenshot": "care-services-dementia-390.png"
+    },
+    {
+      "route": "/care-services/nursing",
+      "width": 390,
+      "screenshot": "care-services-nursing-390.png"
+    },
+    {
+      "route": "/care-services/respite",
+      "width": 390,
+      "screenshot": "care-services-respite-390.png"
+    },
+    {
+      "route": "/facilities",
+      "width": 390,
+      "screenshot": "facilities-390.png"
+    },
+    {
+      "route": "/fees",
+      "width": 390,
+      "screenshot": "fees-390.png"
+    },
+    {
+      "route": "/gallery",
+      "width": 390,
+      "screenshot": "gallery-390.png"
+    },
+    {
+      "route": "/reviews",
+      "width": 390,
+      "screenshot": "reviews-390.png"
+    },
+    {
+      "route": "/contact",
+      "width": 390,
+      "screenshot": "contact-390.png"
+    },
+    {
+      "route": "/privacy",
+      "width": 390,
+      "screenshot": "privacy-390.png"
+    },
+    {
+      "route": "/cookies",
+      "width": 390,
+      "screenshot": "cookies-390.png"
+    },
+    {
+      "route": "/terms",
+      "width": 390,
+      "screenshot": "terms-390.png"
+    },
+    {
+      "route": "/accessibility",
+      "width": 390,
+      "screenshot": "accessibility-390.png"
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "screenshot": "home-768.png"
+    },
+    {
+      "route": "/care-services",
+      "width": 768,
+      "screenshot": "care-services-768.png"
+    },
+    {
+      "route": "/care-services/residential",
+      "width": 768,
+      "screenshot": "care-services-residential-768.png"
+    },
+    {
+      "route": "/care-services/dementia",
+      "width": 768,
+      "screenshot": "care-services-dementia-768.png"
+    },
+    {
+      "route": "/care-services/nursing",
+      "width": 768,
+      "screenshot": "care-services-nursing-768.png"
+    },
+    {
+      "route": "/care-services/respite",
+      "width": 768,
+      "screenshot": "care-services-respite-768.png"
+    },
+    {
+      "route": "/facilities",
+      "width": 768,
+      "screenshot": "facilities-768.png"
+    },
+    {
+      "route": "/fees",
+      "width": 768,
+      "screenshot": "fees-768.png"
+    },
+    {
+      "route": "/gallery",
+      "width": 768,
+      "screenshot": "gallery-768.png"
+    },
+    {
+      "route": "/reviews",
+      "width": 768,
+      "screenshot": "reviews-768.png"
+    },
+    {
+      "route": "/contact",
+      "width": 768,
+      "screenshot": "contact-768.png"
+    },
+    {
+      "route": "/privacy",
+      "width": 768,
+      "screenshot": "privacy-768.png"
+    },
+    {
+      "route": "/cookies",
+      "width": 768,
+      "screenshot": "cookies-768.png"
+    },
+    {
+      "route": "/terms",
+      "width": 768,
+      "screenshot": "terms-768.png"
+    },
+    {
+      "route": "/accessibility",
+      "width": 768,
+      "screenshot": "accessibility-768.png"
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "screenshot": "home-1440.png"
+    },
+    {
+      "route": "/care-services",
+      "width": 1440,
+      "screenshot": "care-services-1440.png"
+    },
+    {
+      "route": "/care-services/residential",
+      "width": 1440,
+      "screenshot": "care-services-residential-1440.png"
+    },
+    {
+      "route": "/care-services/dementia",
+      "width": 1440,
+      "screenshot": "care-services-dementia-1440.png"
+    },
+    {
+      "route": "/care-services/nursing",
+      "width": 1440,
+      "screenshot": "care-services-nursing-1440.png"
+    },
+    {
+      "route": "/care-services/respite",
+      "width": 1440,
+      "screenshot": "care-services-respite-1440.png"
+    },
+    {
+      "route": "/facilities",
+      "width": 1440,
+      "screenshot": "facilities-1440.png"
+    },
+    {
+      "route": "/fees",
+      "width": 1440,
+      "screenshot": "fees-1440.png"
+    },
+    {
+      "route": "/gallery",
+      "width": 1440,
+      "screenshot": "gallery-1440.png"
+    },
+    {
+      "route": "/reviews",
+      "width": 1440,
+      "screenshot": "reviews-1440.png"
+    },
+    {
+      "route": "/contact",
+      "width": 1440,
+      "screenshot": "contact-1440.png"
+    },
+    {
+      "route": "/privacy",
+      "width": 1440,
+      "screenshot": "privacy-1440.png"
+    },
+    {
+      "route": "/cookies",
+      "width": 1440,
+      "screenshot": "cookies-1440.png"
+    },
+    {
+      "route": "/terms",
+      "width": 1440,
+      "screenshot": "terms-1440.png"
+    },
+    {
+      "route": "/accessibility",
+      "width": 1440,
+      "screenshot": "accessibility-1440.png"
+    }
+  ],
+  "checks": [
+    "Skip link, keyboard focus, mobile menu, Escape and navigation",
+    "Lightbox open, focus containment, Escape, close and focus restoration",
+    "Empty, whitespace, invalid-email and valid form input; no transmission",
+    "Fine-pointer card hover, touch and reduced motion",
+    "All public pages without JavaScript; native menu, image links, safe preview form and above-fold trust",
+    "AA text and button/error contrast",
+    "Admin redirect, invalid login, valid login, dashboard, style isolation and logout"
+  ],
+  "contrast": {
+    "Heading on parchment": 14.9,
+    "Body on paper": 6.21,
+    "Body on linen": 5.2,
+    "Signal blue on paper": 6.73,
+    "Signal blue on linen": 5.63,
+    "Footer body": 10.69,
+    "Form errors": 7.54
+  }
+}
