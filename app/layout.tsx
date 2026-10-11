@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-GB">
-      <body className={`${inter.variable} ${lora.variable} font-sans antialiased`}>{children}</body>
+      <body className={`${inter.variable} ${lora.variable} w-full max-w-[100vw] overflow-x-hidden font-sans antialiased`}>{children}</body>
     </html>
   );
 }

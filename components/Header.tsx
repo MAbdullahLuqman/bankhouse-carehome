@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, Flower2, MapPin, Menu } from "lucide-react";
 import { useRef } from "react";
 import { careTypes, siteDetails } from "@/lib/data";
-import { Button } from "./Button";
 
 const careLinks = ["residential", "nursing", "dementia", "respite", "physical-disability", "visual-hearing-impairment"]
   .map(slug => careTypes.find(care => care.slug === slug)!)
@@ -39,7 +38,6 @@ export function Header() {
           <Link href="/about-us" aria-current={pathname === "/about-us" ? "page" : undefined}>About us</Link>
         </nav>
         <div className="header-controls">
-          <Button href="/contact#enquiry">Book a Visit</Button>
           <details ref={mobileMenu} className="mobile-menu" onKeyDown={event => {
             if (event.key === "Escape" && mobileMenu.current?.open) { closeMobileMenu(); mobileMenu.current.querySelector("summary")?.focus(); }
           }}>

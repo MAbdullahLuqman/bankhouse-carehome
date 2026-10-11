@@ -425,6 +425,7 @@ body:has(.lightbox[open]) { overflow: hidden; }
 @media (max-width: 767px) {
   .container { width: calc(100% - 48px); }
   .section { padding-block: 80px; }
+  .header-top { display: none; }
   .header-top-inner > span { display: none; }
   .header-top-inner { justify-content: center; font-size: 14px; }
   .header-main { min-height: 80px; gap: 12px; }
@@ -434,9 +435,10 @@ body:has(.lightbox[open]) { overflow: hidden; }
   .header-controls { gap: 10px; }
   .header-controls .button { padding-inline: 12px; font-size: 12px; }
   .hero { padding-block: 32px 48px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
   .hero .button-row { gap: 12px 20px; }
   .hero .trust-status { margin-top: 24px; }
+  .hero-photo { width: 100%; max-width: 560px; margin-inline: auto; }
   .hero-photo img { height: 320px; min-height: 0; border-radius: 32px 32px 12px 12px; }
   .photo-label { left: 14px; bottom: 58px; padding: 16px; gap: 12px; }
   .photo-label svg { width: 26px; }
