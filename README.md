@@ -21,7 +21,7 @@ npm run check:site -- http://127.0.0.1:3100
 
 The check script visits all 16 public routes at 360, 390, 768 and 1440px, saves full-page screenshots to `reports/generated`, and checks overflow, images, target sizes, navigation, focus, gallery dialogs, form validation, reduced motion, no-JavaScript access and admin login/logout.
 
-Development uses `.next`; production uses `.next-production`, allowing a dev server and production preview to run without overwriting each other’s generated files.
+Development and production builds use Next.js's standard `.next` output directory, which is also the directory expected by Vercel.
 
 ## Content awaiting confirmation
 
