@@ -12,7 +12,7 @@ export const metadata: Metadata = { title: "Our care" };
 export default function CareServicesPage() {
   return <PageShell>
     <section className="care-hero">
-      <Image src="/images/hero-residents.png" alt="An older couple sharing a happy moment together in a welcoming lounge" fill priority sizes="100vw" />
+      <Image src="/images/hero-residents.webp" alt="An older couple sharing a happy moment together in a welcoming lounge" fill priority sizes="100vw" />
       <div className="care-hero-shade" />
       <div className="care-hero-copy">
         <p className="eyebrow">Our care</p>
