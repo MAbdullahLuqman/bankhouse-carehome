@@ -24,8 +24,7 @@ export default function AboutUsPage() {
           <Button href="/contact#enquiry">Arrange a visit</Button>
         </div>
         <figure className="editorial-photo">
-          <Image src="/images/lounge.jpg" alt="Illustrative bright lounge with comfortable seating and natural wood" width={1400} height={933} sizes="(max-width: 767px) calc(100vw - 48px), 560px" />
-          <figcaption>Illustrative image · Actual Bank House photography to follow</figcaption>
+          <Image src="/images/lounge.jpg" alt="Sunlit shared lounge with comfortable seating and natural wood" width={1400} height={933} sizes="(max-width: 767px) calc(100vw - 48px), 560px" />
         </figure>
       </div>
     </section>

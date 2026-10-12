@@ -19,17 +19,16 @@ export default function CareServicesPage() {
         <h1>Helping people feel at home, one day at a time.</h1>
         <p>Every person and family has a story. Let’s talk about the support that could help make life feel more comfortable.</p>
         <Button href="#care-options">Explore our care</Button>
-        <span className="care-hero-caption">Illustrative image · Bank House photography to follow</span>
       </div>
     </section>
 
     <section className="care-feature-wrap container" aria-label="Starting points">
       <article className="care-feature-card">
-        <Image src="/images/lounge.jpg" alt="Illustrative bright lounge with comfortable seating" width={800} height={700} />
+        <Image src="/images/lounge.jpg" alt="Sunlit shared lounge with comfortable seating and natural wood" width={800} height={700} />
         <div><p className="eyebrow">A familiar setting</p><h2>Residential and respite stays</h2><p>Bank House offers permanent residential care and respite stays for people aged {siteDetails.admissionsAge} and over.</p><Link className="text-link" href="/care-services/residential">About residential care<ArrowUpRight size={18} aria-hidden="true" /></Link></div>
       </article>
       <article className="care-feature-card">
-        <Image src="/images/room.jpg" alt="Illustrative comfortable room with neutral furnishings" width={800} height={700} />
+        <Image src="/images/resident-bedroom.webp" alt="Resident bedroom with an accessible bed, armchair and personal photographs" width={800} height={700} />
         <div><p className="eyebrow">Support for each person</p><h2>Find the right kind of care</h2><p>Explore the care categories listed for Bank House and discuss individual needs with the home.</p><Link className="text-link" href="#care-options">See care categories<ArrowUpRight size={18} aria-hidden="true" /></Link></div>
       </article>
     </section>
@@ -42,7 +41,7 @@ export default function CareServicesPage() {
           <div><h3>Other listed specialisms</h3><ul className="check-list">{specialisms.map(item => <li key={item}>{item}</li>)}</ul></div>
           <div><h3>Stay options</h3><p>Permanent residential care and respite care are offered. Contact Bank House to discuss dates and availability.</p><p><strong>Registered for mild dementia.</strong></p></div>
         </div>
-        <p className="pending-note care-nursing-note"><strong>Nursing care is not included</strong> in the service information supplied. Contact Bank House to confirm whether it can meet specific clinical needs.</p>
+        <p><strong>Nursing care is not included</strong> in the service information supplied. Contact Bank House to confirm whether it can meet specific clinical needs.</p>
       </div>
     </section>
 

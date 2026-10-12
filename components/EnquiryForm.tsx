@@ -58,7 +58,7 @@ export function EnquiryForm() {
     setChecked(Object.keys(nextErrors).length === 0);
   }
 
-  return <form id="enquiry" className="consultation-card" noValidate onSubmit={check} onChange={() => setChecked(false)} aria-describedby="preview-explanation">
+  return <form id="enquiry" className="consultation-card" noValidate onSubmit={check} onChange={() => setChecked(false)}>
     <div className="consultation-side">
       <p className="eyebrow">Bank House Care Home</p><h1>Contact us</h1>
       <p>Ask about arranging a visit or talk through the care and support you’re looking for.</p>
@@ -95,7 +95,6 @@ export function EnquiryForm() {
     </div>
     <div className="enquiry-form">
       <p className="eyebrow">Book a visit or ask a question</p><h2>What time works best?</h2>
-      <p id="preview-explanation"><strong>Design preview — enquiries are not sent.</strong> Your entries are not transmitted or saved.</p>
       <fieldset className="time-options"><legend>Preferred time</legend>{[["Morning", "morning"], ["Afternoon", "afternoon"], ["No preference", "any"]].map(([label, value], index) => <label key={value}><input type="radio" name="visit-time" value={value} defaultChecked={index === 0} /><span>{label}</span></label>)}</fieldset>
       {Object.keys(errors).length > 0 && <div ref={summary} className="error-summary" tabIndex={-1} role="alert"><h3>Please check the following</h3><ul>{Object.entries(errors).map(([id, message]) => <li key={id}><a href={`#${id}`} onClick={() => document.getElementById(id)?.focus()}>{message}</a></li>)}</ul></div>}
       <div className="form-grid">
@@ -106,7 +105,7 @@ export function EnquiryForm() {
         <div className="form-field full-width"><label htmlFor="message">What would you like to discuss? <span>(optional)</span></label><textarea id="message" name="message" maxLength={2000} aria-describedby="message-hint" /><p id="message-hint" className="form-footnote">Please avoid entering sensitive health information in this preview.</p></div>
       </div>
       <button type={ready ? "submit" : "button"} disabled={!ready} className="button">Prepare enquiry<ArrowUpRight size={18} aria-hidden="true" /></button>
-      <noscript><p className="pending-note">Form checking requires JavaScript. This preview cannot send enquiries. Use the postal address shown on this page.</p></noscript>
+      <noscript><p>Form checking requires JavaScript. This form cannot send enquiries without it. Use the postal address shown on this page.</p></noscript>
       {checked && <p className="form-status" role="status">The required fields are complete. This is a preview; no enquiry has been sent or saved.</p>}
       <p className="form-footnote">This preview does not send enquiries. <Link className="text-link" href="/privacy">Privacy notice</Link></p>
     </div>

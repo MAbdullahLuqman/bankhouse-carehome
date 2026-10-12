@@ -1,15 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, ShieldCheck, MessageCircle, Plus } from "lucide-react";
-import { careTypes, facilities, gallery, reviews, siteDetails } from "@/lib/data";
+import { careTypes, facilities, reviews, siteDetails } from "@/lib/data";
 
 export function PageIntro({ label, title, children }: { label: string; title: string; children: React.ReactNode }) {
   return <section className="page-intro"><div className="container"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><span>{label}</span></nav><p className="eyebrow">{label}</p><h1>{title}</h1><div className="intro-copy">{children}</div></div></section>;
 }
 
 export function CareGrid() {
-  return <div className="care-grid">{careTypes.filter(care => care.slug !== "nursing").map(({ slug, title, description, icon: Icon }, index) => <article className="care-card" key={slug}>
-    <Image className="care-card-image" src={gallery[index % gallery.length].src} alt="" fill sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1199px) 44vw, 30vw" />
+  return <div className="care-grid">{careTypes.filter(care => care.slug !== "nursing").map(({ slug, title, description, image, icon: Icon }) => <article className="care-card" key={slug}>
+    <Image className="care-card-image" src={image} alt="" fill sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1199px) 44vw, 30vw" />
     <div className="care-card-copy"><span className="care-card-icon"><Icon size={24} strokeWidth={1.7} aria-hidden="true" /></span><h3>{title}</h3><p>{description}</p><Link className="text-link" href={`/care-services/${slug}`}>Learn about {title.toLowerCase()}</Link></div>
   </article>)}</div>;
 }

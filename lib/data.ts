@@ -33,6 +33,7 @@ export const specialisms = ["Parkinson’s disease", "Acquired brain injury (ABI
 export const careTypes = [
   {
     slug: "residential", title: "Older person care", icon: HeartHandshake,
+    image: "/images/home-residents.webp",
     description: "Residential care for older people, with permanent and respite stays available.",
     intro: "Bank House provides residential care for older people aged 65 and over, for both permanent and respite stays.",
     approachTitle: "Support that starts with the person",
@@ -46,6 +47,7 @@ export const careTypes = [
   },
   {
     slug: "dementia", title: "Dementia care", icon: Brain,
+    image: "/images/care-dementia.webp",
     description: "Understanding, familiar routines and thoughtful support for people living with dementia.",
     intro: "Every person's experience of dementia is different. Choosing care means finding people who understand the individual, their history and their changing needs.",
     approachTitle: "Familiarity, dignity and understanding",
@@ -59,6 +61,7 @@ export const careTypes = [
   },
   {
     slug: "physical-disability", title: "Physical disability care", icon: Accessibility,
+    image: "/images/care-physical-disability.webp",
     description: "Residential care for people with physical disabilities.",
     intro: "Physical disability is one of the care categories listed for Bank House. Contact the home to discuss an individual's support needs and suitability.",
     approachTitle: "Support shaped around individual needs",
@@ -72,6 +75,7 @@ export const careTypes = [
   },
   {
     slug: "visual-hearing-impairment", title: "Visual & hearing impairment", icon: Eye,
+    image: "/images/care-sensory-support.webp",
     description: "Care for people with visual or hearing impairment.",
     intro: "Visual and hearing impairment are included in Bank House's listed care categories. Contact the home to discuss communication and support needs.",
     approachTitle: "Communication that works for each person",
@@ -85,6 +89,7 @@ export const careTypes = [
   },
   {
     slug: "nursing", title: "Nursing care", icon: Stethoscope,
+    image: "/images/home-residents.webp",
     description: "Information about nursing care and how to confirm whether a home can meet clinical needs.",
     intro: "Some people need clinical support alongside personal care. Nursing care involves registered nurses and care arrangements matched to those needs.",
     approachTitle: "Clarity about clinical support",
@@ -98,6 +103,7 @@ export const careTypes = [
   },
   {
     slug: "respite", title: "Respite care", icon: CalendarDays,
+    image: "/images/hero-residents.webp",
     description: "Explore a short stay for extra support, a change of routine or a break for a family carer.",
     intro: "A short care stay can provide temporary support while a family carer takes a break or circumstances change. The right arrangements depend on individual needs.",
     approachTitle: "A short stay, thoughtfully planned",
@@ -125,10 +131,10 @@ export const facilities = [
 ];
 
 export const gallery = [
-  { src: "/images/lounge.jpg", title: "Light-filled living spaces", alt: "Illustrative sunlit living room with comfortable seating and natural wood", source: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0" },
-  { src: "/images/home.jpg", title: "A welcoming setting", alt: "Illustrative house with a green lawn and outdoor space", source: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6" },
-  { src: "/images/room.jpg", title: "Room for familiar comforts", alt: "Illustrative sitting room with neutral furnishings, a sofa and a coffee table", source: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" },
-  { src: "/images/dining.jpg", title: "Time around the table", alt: "Illustrative kitchen and dining space with natural light", source: "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1" }
+  { src: "/images/lounge.jpg", title: "Light-filled living spaces", alt: "Sunlit shared lounge with comfortable seating and natural wood" },
+  { src: "/images/care-home-exterior.webp", title: "A welcoming setting", alt: "Brick care home surrounded by gardens and outdoor seating" },
+  { src: "/images/resident-bedroom.webp", title: "Room for familiar comforts", alt: "Resident bedroom with an accessible bed, armchair and personal photographs" },
+  { src: "/images/care-shared-dining.webp", title: "Time around the table", alt: "Older residents sharing a meal in a bright dining room" }
 ];
 
 export const reviews: { name: string; text: string; source: string; url: string }[] = [];
