@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:emulator": "FIREBASE_USE_EMULATOR=true FIREBASE_PROJECT_ID=demo-bank-house FIREBASE_API_KEY=demo-key FIREBASE_ADMIN_EMAILS=admin@bankhouse.local FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 next dev",
+    "firebase:emulators": "npx firebase-tools emulators:start --project demo-bank-house --only auth,firestore --import=./.firebase/emulator-data --export-on-exit",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -11,6 +13,7 @@
     "check:site": "node scripts/check-site.mjs"
   },
   "dependencies": {
+    "firebase-admin": "^14.5.0",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.468.0",
     "next": "^14.2.23",

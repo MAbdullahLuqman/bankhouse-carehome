@@ -41,7 +41,7 @@ export default function CareServicesPage() {
           <div><h3>Other listed specialisms</h3><ul className="check-list">{specialisms.map(item => <li key={item}>{item}</li>)}</ul></div>
           <div><h3>Stay options</h3><p>Permanent residential care and respite care are offered. Contact Bank House to discuss dates and availability.</p><p><strong>Registered for mild dementia.</strong></p></div>
         </div>
-        <p><strong>Nursing care is not included</strong> in the service information supplied. Contact Bank House to confirm whether it can meet specific clinical needs.</p>
+        <p className="care-nursing-info"><strong>Nursing care is not included</strong> in the service information supplied. Contact Bank House to confirm whether it can meet specific clinical needs.</p>
       </div>
     </section>
 

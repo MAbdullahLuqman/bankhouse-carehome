@@ -23,8 +23,8 @@ export default function AboutUsPage() {
           <p>Bank House has space for up to {siteDetails.capacity} people, with single and companion rooms. Residents may bring familiar furniture and belongings.</p>
           <Button href="/contact#enquiry">Arrange a visit</Button>
         </div>
-        <figure className="editorial-photo">
-          <Image src="/images/lounge.jpg" alt="Sunlit shared lounge with comfortable seating and natural wood" width={1400} height={933} sizes="(max-width: 767px) calc(100vw - 48px), 560px" />
+        <figure className="editorial-photo about-exterior-photo">
+          <Image src="/images/bank_house_about_exterior.webp" alt="Bank House Care Home viewed from Brandlesholme Road." width={1635} height={962} sizes="(max-width: 767px) calc(100vw - 48px), 560px" />
         </figure>
       </div>
     </section>
@@ -38,10 +38,20 @@ export default function AboutUsPage() {
         <dl className="about-facts">
           <div><dt>Location</dt><dd>{siteDetails.address}</dd></div>
           <div><dt>Owner</dt><dd>{siteDetails.owner}</dd></div>
-          <div><dt>Manager</dt><dd>{siteDetails.manager}</dd></div>
           <div><dt>Accommodation</dt><dd>{siteDetails.rooms.single} single rooms and {siteDetails.rooms.companion} companion rooms</dd></div>
         </dl>
         <Link className="text-link" href="/facilities">Explore the home and facilities<ArrowUpRight size={18} aria-hidden="true" /></Link>
+      </div>
+    </section>
+    <section className="section" id="management">
+      <div className="container about-details">
+        <div className="section-heading">
+          <p className="eyebrow">Our people</p>
+          <h2>Meet the management team.</h2>
+        </div>
+        <dl className="about-facts management-facts">
+          {siteDetails.management.map(({ name, role }) => <div key={name}><dt>{role}</dt><dd>{name}</dd></div>)}
+        </dl>
       </div>
     </section>
   </PageShell>;

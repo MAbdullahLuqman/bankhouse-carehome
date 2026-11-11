@@ -8,8 +8,11 @@ import { siteDetails } from "@/lib/data";
 export function EnquiryForm() {
   const [ready, setReady] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [checked, setChecked] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
+  const [enquiryType, setEnquiryType] = useState("visit");
   const [focusedDate, setFocusedDate] = useState(() => dateKey(new Date()));
   const [visibleMonth, setVisibleMonth] = useState(() => {
     const now = new Date();
@@ -45,24 +48,54 @@ export function EnquiryForm() {
     setFocusedDate(dateKey(nextDate));
   }
 
-  function check(event: React.FormEvent<HTMLFormElement>) {
+  async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const name = form.elements.namedItem("full-name") as HTMLInputElement;
     const email = form.elements.namedItem("email") as HTMLInputElement;
+    const message = form.elements.namedItem("message") as HTMLTextAreaElement;
+    const type = form.elements.namedItem("enquiry-type") as HTMLSelectElement;
     const nextErrors: Record<string, string> = {};
     if (!name.value.trim()) nextErrors["full-name"] = "Enter your full name.";
     if (!email.value.trim()) nextErrors.email = "Enter your email address.";
     else if (email.validity.typeMismatch) nextErrors.email = "Enter an email address in the format name@example.com.";
+    if (type.value !== "visit" && !message.value.trim()) nextErrors.message = "Add a short message so the team knows how to help.";
     setErrors(nextErrors);
-    setChecked(Object.keys(nextErrors).length === 0);
+    setSent(false);
+    setSubmissionError("");
+    if (Object.keys(nextErrors).length) return;
+
+    const values = new FormData(form);
+    setSending(true);
+    try {
+      const response = await fetch("/api/enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.value.trim(),
+          email: email.value.trim(),
+          phone: values.get("phone"),
+          enquiryType: values.get("enquiry-type"),
+          message: values.get("message"),
+          visitDate: values.get("visit-date"),
+          visitTime: values.get("visit-time")
+        })
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "We couldn’t send your enquiry. Please try again.");
+      setSent(true);
+    } catch (error) {
+      setSubmissionError(error instanceof Error ? error.message : "We couldn’t send your enquiry. Please try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
-  return <form id="enquiry" className="consultation-card" noValidate onSubmit={check} onChange={() => setChecked(false)}>
+  return <form id="enquiry" className="consultation-card" noValidate onSubmit={submit} onChange={() => { setSent(false); setSubmissionError(""); }}>
     <div className="consultation-side">
       <p className="eyebrow">Bank House Care Home</p><h1>Contact us</h1>
-      <p>Ask about arranging a visit or talk through the care and support you’re looking for.</p>
-      <section className="date-picker" aria-labelledby="preferred-day-heading">
+      <p>Arrange a visit or send us a question about care, fees or anything else.</p>
+      {enquiryType === "visit" && <section className="date-picker" aria-labelledby="preferred-day-heading">
         <div className="calendar-heading">
           <button type="button" aria-label="Previous month" onClick={() => changeMonth(-1)}><ChevronLeft size={22} aria-hidden="true" /></button>
           <h2 id="preferred-day-heading">Preferred day</h2>
@@ -90,24 +123,25 @@ export function EnquiryForm() {
           })}
         </div>
         <input type="hidden" name="visit-date" value={selectedDate} />
-      </section>
+      </section>}
       <div className="consultation-address"><MapPin size={20} aria-hidden="true" /><span>{siteDetails.address}</span></div>
     </div>
     <div className="enquiry-form">
-      <p className="eyebrow">Book a visit or ask a question</p><h2>What time works best?</h2>
-      <fieldset className="time-options"><legend>Preferred time</legend>{[["Morning", "morning"], ["Afternoon", "afternoon"], ["No preference", "any"]].map(([label, value], index) => <label key={value}><input type="radio" name="visit-time" value={value} defaultChecked={index === 0} /><span>{label}</span></label>)}</fieldset>
+      <p className="eyebrow">Book a visit or ask a question</p><h2>{enquiryType === "visit" ? "What time works best?" : "What can we help with?"}</h2>
+      {enquiryType === "visit" && <fieldset className="time-options"><legend>Preferred time</legend>{[["Morning", "morning"], ["Afternoon", "afternoon"], ["No preference", "any"]].map(([label, value], index) => <label key={value}><input type="radio" name="visit-time" value={value} defaultChecked={index === 0} /><span>{label}</span></label>)}</fieldset>}
       {Object.keys(errors).length > 0 && <div ref={summary} className="error-summary" tabIndex={-1} role="alert"><h3>Please check the following</h3><ul>{Object.entries(errors).map(([id, message]) => <li key={id}><a href={`#${id}`} onClick={() => document.getElementById(id)?.focus()}>{message}</a></li>)}</ul></div>}
       <div className="form-grid">
         <div className="form-field full-width"><label htmlFor="full-name">Name <span>(required)</span></label><input id="full-name" name="full-name" autoComplete="name" required maxLength={150} aria-invalid={Boolean(errors["full-name"])} aria-describedby={errors["full-name"] ? "full-name-error" : undefined} />{errors["full-name"] && <p id="full-name-error" className="field-error">{errors["full-name"]}</p>}</div>
         <div className="form-field full-width"><label htmlFor="email">Email address <span>(required)</span></label><input id="email" name="email" type="email" autoComplete="email" required maxLength={254} aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "email-error" : undefined} />{errors.email && <p id="email-error" className="field-error">{errors.email}</p>}</div>
         <div className="form-field"><label htmlFor="phone">Phone <span>(optional)</span></label><input id="phone" name="phone" type="tel" autoComplete="tel" maxLength={40} /></div>
-        <div className="form-field"><label htmlFor="enquiry-type">I’d like to</label><select id="enquiry-type" name="enquiry-type" defaultValue="visit"><option value="visit">Arrange a visit</option><option value="care">Discuss care</option><option value="fees">Discuss fees</option><option value="other">Ask a question</option></select></div>
-        <div className="form-field full-width"><label htmlFor="message">What would you like to discuss? <span>(optional)</span></label><textarea id="message" name="message" maxLength={2000} aria-describedby="message-hint" /><p id="message-hint" className="form-footnote">Please avoid entering sensitive health information in this preview.</p></div>
+        <div className="form-field"><label htmlFor="enquiry-type">I’d like to</label><select id="enquiry-type" name="enquiry-type" value={enquiryType} onChange={event => setEnquiryType(event.target.value)}><option value="visit">Arrange a visit</option><option value="care">Discuss care</option><option value="fees">Discuss fees</option><option value="other">Ask a question</option></select></div>
+        <div className="form-field full-width"><label htmlFor="message">What would you like to discuss? <span>({enquiryType === "visit" ? "optional" : "required"})</span></label><textarea id="message" name="message" maxLength={2000} required={enquiryType !== "visit"} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "message-error" : "message-hint"} />{errors.message ? <p id="message-error" className="field-error">{errors.message}</p> : <p id="message-hint" className="form-footnote">Please avoid entering sensitive health information.</p>}</div>
       </div>
-      <button type={ready ? "submit" : "button"} disabled={!ready} className="button">Prepare enquiry<ArrowUpRight size={18} aria-hidden="true" /></button>
+      <button type={ready ? "submit" : "button"} disabled={!ready || sending} className="button">{sending ? "Sending…" : "Send enquiry"}<ArrowUpRight size={18} aria-hidden="true" /></button>
       <noscript><p>Form checking requires JavaScript. This form cannot send enquiries without it. Use the postal address shown on this page.</p></noscript>
-      {checked && <p className="form-status" role="status">The required fields are complete. This is a preview; no enquiry has been sent or saved.</p>}
-      <p className="form-footnote">This preview does not send enquiries. <Link className="text-link" href="/privacy">Privacy notice</Link></p>
+      {submissionError && <p className="field-error" role="alert">{submissionError}</p>}
+      {sent && <p className="form-status" role="status">Your enquiry has been sent to the Bank House team.</p>}
+      <p className="form-footnote">Your details are used to respond to your enquiry. <Link className="text-link" href="/privacy">Privacy notice</Link></p>
     </div>
   </form>;
 }

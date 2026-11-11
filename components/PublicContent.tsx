@@ -25,7 +25,7 @@ export function TrustStatus() {
 }
 
 export function FamilyReviews() {
-  return reviews.length ? <div className="review-grid">{reviews.map(review => <figure className="review-card" key={review.url}><blockquote>“{review.text}”</blockquote><figcaption>{review.name}<a className="text-link" href={review.url}>{review.source}<ArrowUpRight size={18} aria-hidden="true" /></a></figcaption></figure>)}</div> : <div className="reviews-pending"><MessageCircle size={34} strokeWidth={1.5} aria-hidden="true" /><div><h3>No reviews are currently published.</h3><p>There are also no awards, accreditations, upcoming events or team members listed at this time.</p></div></div>;
+  return reviews.length ? <div className="review-grid">{reviews.map(review => <figure className="review-card" key={review.url}><blockquote>“{review.text}”</blockquote><figcaption>{review.name}<a className="text-link" href={review.url}>{review.source}<ArrowUpRight size={18} aria-hidden="true" /></a></figcaption></figure>)}</div> : <div className="reviews-pending"><MessageCircle size={34} strokeWidth={1.5} aria-hidden="true" /><div><h3>No reviews are currently published.</h3><p>There are also no awards, accreditations or upcoming events at this time.</p></div></div>;
 }
 
 export function FAQs({ questions }: { questions: string[][] }) {

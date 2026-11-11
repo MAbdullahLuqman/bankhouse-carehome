@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 export function LoginForm() {
   const router = useRouter();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -13,22 +14,39 @@ export function LoginForm() {
     event.preventDefault();
     setLoading(true);
     setError("");
-    const response = await fetch("/api/admin/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password })
-    });
-    setLoading(false);
-    if (!response.ok) {
-      setError("Password not recognised.");
-      return;
+    try {
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        setError(result.error || "Unable to sign in.");
+        return;
+      }
+      router.push("/admin/dashboard");
+      router.refresh();
+    } catch {
+      setError("Unable to reach the sign-in service. Try again.");
+    } finally {
+      setLoading(false);
     }
-    router.push("/admin/dashboard");
-    router.refresh();
   }
 
   return (
     <form onSubmit={submit} className="mt-6 grid gap-4">
+      <label className="grid gap-2 text-sm font-semibold text-charcoal">
+        Email address
+        <input
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          type="email"
+          className="min-h-12 rounded-md border border-charcoal/10 bg-canvas px-4 text-base text-charcoal"
+          autoComplete="username"
+          required
+        />
+      </label>
       <label className="grid gap-2 text-sm font-semibold text-charcoal">
         Password
         <input
@@ -44,7 +62,6 @@ export function LoginForm() {
       <button className="min-h-12 rounded-md bg-terracotta px-5 py-3 font-semibold text-white transition duration-300 ease-out hover:scale-105 hover:bg-terracotta/90 hover:brightness-90 hover:shadow-lg" disabled={loading}>
         {loading ? "Checking..." : "Sign In"}
       </button>
-      <p className="text-sm text-charcoal/80">Mock password: ChangeMeBankHouse!</p>
     </form>
   );
 }

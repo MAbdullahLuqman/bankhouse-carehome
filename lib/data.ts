@@ -8,7 +8,11 @@ export const navLinks = [
 export const siteDetails = {
   name: "Bank House Care Home",
   owner: "Crystal House Platinum Ltd",
-  manager: "Ghazala Mahmood",
+  management: [
+    { name: "Maria Leach", role: "CQC Registered Manager" },
+    { name: "Ghazala Mahmood", role: "Senior Management" },
+    { name: "Munnazza Kanwar", role: "Senior Management" }
+  ],
   address: "Brandlesholme Road, Bury, Greater Manchester BL8 1DJ",
   locationNote: "1.0 mile from the centre of Bury, as the crow flies",
   phone: null as string | null,
@@ -33,7 +37,7 @@ export const specialisms = ["Parkinson’s disease", "Acquired brain injury (ABI
 export const careTypes = [
   {
     slug: "residential", title: "Older person care", icon: HeartHandshake,
-    image: "/images/home-residents.webp",
+    image: "/images/older-person-care.png",
     description: "Residential care for older people, with permanent and respite stays available.",
     intro: "Bank House provides residential care for older people aged 65 and over, for both permanent and respite stays.",
     approachTitle: "Support that starts with the person",
@@ -47,7 +51,7 @@ export const careTypes = [
   },
   {
     slug: "dementia", title: "Dementia care", icon: Brain,
-    image: "/images/care-dementia.webp",
+    image: "/images/dementia-memory-care.png",
     description: "Understanding, familiar routines and thoughtful support for people living with dementia.",
     intro: "Every person's experience of dementia is different. Choosing care means finding people who understand the individual, their history and their changing needs.",
     approachTitle: "Familiarity, dignity and understanding",
@@ -103,7 +107,7 @@ export const careTypes = [
   },
   {
     slug: "respite", title: "Respite care", icon: CalendarDays,
-    image: "/images/hero-residents.webp",
+    image: "/images/respite-care.webp",
     description: "Explore a short stay for extra support, a change of routine or a break for a family carer.",
     intro: "A short care stay can provide temporary support while a family carer takes a break or circumstances change. The right arrangements depend on individual needs.",
     approachTitle: "A short stay, thoughtfully planned",
@@ -132,10 +136,15 @@ export const facilities = [
 
 export const gallery = [
   { src: "/images/lounge.jpg", title: "Light-filled living spaces", alt: "Sunlit shared lounge with comfortable seating and natural wood" },
-  { src: "/images/care-home-exterior.webp", title: "A welcoming setting", alt: "Brick care home surrounded by gardens and outdoor seating" },
+  { src: "/images/bank_house_entrance.jpeg", title: "The entrance from Brandlesholme Road", alt: "Bank House entrance viewed from Brandlesholme Road" },
   { src: "/images/resident-bedroom.webp", title: "Room for familiar comforts", alt: "Resident bedroom with an accessible bed, armchair and personal photographs" },
   { src: "/images/care-shared-dining.webp", title: "Time around the table", alt: "Older residents sharing a meal in a bright dining room" }
 ];
+
+export const streetView = {
+  panorama: "https://www.google.com/maps/embed?pb=!4v1794228449606!6m8!1m7!1sfQgRQz33JVj7CeusBs69nQ!2m2!1d53.6039709096956!2d-2.311217648775873!3f244.07541439322435!4f0.4322401117434964!5f0.7820865974627469",
+  open: "https://maps.app.goo.gl/8AsmSGqKW913DwC57"
+};
 
 export const reviews: { name: string; text: string; source: string; url: string }[] = [];
 
